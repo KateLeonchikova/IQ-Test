@@ -1,0 +1,13 @@
+@use "variables" as *;
+@use "mixin" as *;
+
+@include font-face($font-family, 400, normal, "PTSerif-Regular");
+@include font-face($font-family, 700, normal, "PTSerif-Bold");
+@include font-face($second-family, 400, normal, "YesevaOne-Regular");
+@include font-face($third-family, 400, normal, "Merriweather-Regular");
+@include font-face($third-family, 700, normal, "Merriweather-Bold");
+@include font-face($third-family, 900, normal, "Merriweather-Black");
+@include font-face($font3, 400, normal, "Roboto-Regular");
+@include font-face($font3, 300, normal, "Roboto-Light");
+@include font-face($font3, 500, normal, "Roboto-Medium");
+@include font-face($font3, 900, normal, "Roboto-Black");
