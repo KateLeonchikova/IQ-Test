@@ -27,6 +27,7 @@ body {
   padding: 0;
   min-width: 320px;
   font-family: "PT Serif", "Yeseva One", "Merriweather", "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -39,7 +40,115 @@ body {
 
 // header
 .header {
-  height: 46px;
+  position: relative;
+  min-height: 46px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-color: $dark-grey;
+
+  &__menu {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+  }
+
+  &__burger {
+    position: absolute;
+    left: 10px;
+    top: 16px;
+    display: flex;
+    outline: none;
+    border: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 19px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: transparent;
+
+    &:focus-visible span,
+    &:hover span {
+      background-color: $yellow;
+    }
+
+    & span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      border-radius: 3px;
+      background-color: $light-grey;
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    &--open {
+      left: unset;
+      right: 20px;
+
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    padding: 110px 23px;
+    transform: translateX(100%);
+    background-color: $dark-grey;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out,
+      visibility 0s linear 0.4s;
+
+    &--open {
+      transform: translateX(-10px);
+      opacity: 1;
+      visibility: visible;
+      transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    &-list {
+      @include list-reset;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &-item {
+      padding: 10px 0;
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-family: $font3;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 137%;
+      text-transform: uppercase;
+      color: $white;
+      gap: 27px;
+      outline: none;
+      transition: color 0.3s ease;
+      cursor: pointer;
+
+      &:focus-visible,
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
 }
 
 // main

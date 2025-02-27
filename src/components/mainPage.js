@@ -2,6 +2,7 @@ import { el } from "redom";
 import btnIcon from "../assets/images/btn.svg";
 import brainImg from "../assets/images/brain.svg";
 import benefitsImg from "../assets/images/extra-benefits.png";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export function renderMainPage() {
   const mainPage = el(
@@ -37,7 +38,10 @@ export function renderMainPage() {
         ),
         el(
           "button",
-          { className: "hero__details" },
+          {
+            className: "hero__details",
+            onclick: () => scrollToSection("#conclusion"),
+          },
           el("img", { src: btnIcon, className: "hero__details--img" }),
           el("span", { className: "hero__details--text" }, "Подробнее")
         )
@@ -87,7 +91,7 @@ export function renderMainPage() {
     ),
     el(
       "section",
-      { className: "conclusion" },
+      { className: "conclusion", id: "conclusion" },
       el(
         "div",
         { className: "container conclusion__container" },
