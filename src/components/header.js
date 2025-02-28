@@ -1,5 +1,5 @@
 import { el } from "redom";
-import { scrollToSection } from "../utils/scrollToSection";
+import logoImg from "../assets/images/brain.svg";
 
 export function renderHeader() {
   let isMenuOpen = false;
@@ -40,72 +40,84 @@ export function renderHeader() {
     }
   }
 
-  const header = el(
-    "header",
-    { className: "header" },
-    el(
+  const header = el("header", { className: "header" });
+  const container = el("div", { className: "container" });
+
+  if (window.location.pathname === "/test") {
+    const logo = el(
       "div",
-      { className: "container" },
+      { className: "header__wrapper" },
       el(
-        "div",
-        { className: "header__menu" },
+        "a",
+        { className: "header__wrapper_link", href: "/" },
+        el("img", { className: "header__wrapper_logo", src: logoImg })
+      ),
+      el("p", { className: "header__wrapper_title" }, "тест на определение IQ")
+    );
+
+    container.appendChild(logo);
+  }
+
+  const menu = el(
+    "div",
+    { className: "header__menu" },
+    el(
+      "button",
+      {
+        className: "header__burger",
+        onclick: toggleMenu,
+        "aria-label": "Открыть меню",
+      },
+      el("span"),
+      el("span"),
+      el("span")
+    ),
+    el(
+      "nav",
+      { className: "header__nav" },
+      el(
+        "ul",
+        { className: "header__nav-list" },
         el(
-          "button",
-          {
-            className: "header__burger",
-            onclick: toggleMenu,
-            "aria-label": "Открыть меню",
-          },
-          el("span"),
-          el("span"),
-          el("span")
+          "li",
+          { className: "header__nav-item" },
+          el(
+            "a",
+            {
+              className: "header__nav-link",
+              href: "/",
+              "aria-label": "Перейти на главную страницу",
+            },
+            "Главная"
+          )
         ),
         el(
-          "nav",
-          { className: "header__nav" },
+          "li",
+          { className: "header__nav-item" },
           el(
-            "ul",
-            { className: "header__nav-list" },
-            el(
-              "li",
-              { className: "header__nav-item" },
-              el(
-                "a",
-                {
-                  className: "header__nav-link",
-                  href: "/",
-                  "aria-label": "Перейти на главную страницу",
-                },
-                "Главная"
-              )
-            ),
-            el(
-              "li",
-              { className: "header__nav-item" },
-              el(
-                "a",
-                {
-                  className: "header__nav-link",
-                  href: "#",
-                  onclick: () => scrollToSection("#conclusion"),
-                },
-                "Информация о тесте"
-              )
-            ),
-            el(
-              "li",
-              { className: "header__nav-item" },
-              el(
-                "a",
-                { className: "header__nav-link", href: "#" },
-                "Пройти тест"
-              )
-            )
+            "a",
+            {
+              className: "header__nav-link",
+              href: "/#conclusion",
+            },
+            "Информация о тесте"
+          )
+        ),
+        el(
+          "li",
+          { className: "header__nav-item" },
+          el(
+            "a",
+            { className: "header__nav-link", href: "/test" },
+            "Пройти тест"
           )
         )
       )
     )
   );
+
+  container.prepend(menu);
+  header.appendChild(container);
 
   return header;
 }

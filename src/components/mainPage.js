@@ -21,7 +21,14 @@ export function renderMainPage() {
         ),
         el("h1", { className: "hero__title" }, "Tест на определение IQ"),
         el("img", { src: brainImg, className: "hero__img" }),
-        el("button", { className: "hero__button" }, "пройти тест"),
+        el(
+          "a",
+          {
+            className: "hero__button",
+            href: "/test",
+          },
+          "пройти тест"
+        ),
         el(
           "div",
           { className: "hero__descr" },
@@ -86,7 +93,11 @@ export function renderMainPage() {
           " которая принесет вам скорейший финансовый результат."
         ),
         el("img", { src: benefitsImg, className: "extra-benefits__img" }),
-        el("button", { className: "extra-benefits__button" }, "пройти тест")
+        el(
+          "a",
+          { className: "extra-benefits__button", href: "/test" },
+          "пройти тест"
+        )
       )
     ),
     el(
@@ -130,7 +141,7 @@ export function renderMainPage() {
             " от финансового до любовного."
           )
         ),
-        el("button", { className: "conclusion__btn" }, "пройти тест")
+        el("a", { className: "conclusion__btn", href: "/test" }, "пройти тест")
       )
     )
   );

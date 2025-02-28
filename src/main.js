@@ -4,18 +4,21 @@ import { el, setChildren } from "redom";
 
 import { renderHeader } from "./components/header";
 import { renderMainPage } from "./components/mainPage";
+import { renderTestPage } from "./components/testPage";
 import { renderFooter } from "./components/footer";
 
-const router = new Navigo("/", { hash: true });
+const router = new Navigo("/");
 
 const app = document.getElementById("app");
 
-router.on("/", () => {
-  setChildren(app, renderHeader(), renderMainPage(), renderFooter());
-});
+router
+  .on({
+    "/": () => {
+      setChildren(app, renderHeader(), renderMainPage(), renderFooter());
+    },
 
-router.on("/about", () => {
-  app.innerHTML = "<h1>О нас</h1>";
-});
-
-router.resolve();
+    "/test": () => {
+      setChildren(app, renderHeader(), renderTestPage(), renderFooter());
+    },
+  })
+  .resolve();

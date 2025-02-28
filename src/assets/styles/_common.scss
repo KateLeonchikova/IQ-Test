@@ -26,16 +26,20 @@ body {
   margin: 0;
   padding: 0;
   min-width: 320px;
+  height: 100%;
   font-family: "PT Serif", "Yeseva One", "Merriweather", "Roboto", sans-serif;
+}
+
+#app {
   overflow-x: hidden;
 }
 
 .container {
   max-width: 1240px;
-  min-width: 320px;
   margin: 0 auto;
   padding: 0 10px;
   width: 100%;
+  height: 100%;
 }
 
 // header
@@ -56,7 +60,7 @@ body {
   &__burger {
     position: absolute;
     left: 10px;
-    top: 16px;
+    top: 14px;
     display: flex;
     outline: none;
     border: none;
@@ -65,7 +69,7 @@ body {
     width: 35px;
     height: 19px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 99999;
     background-color: transparent;
 
     &:focus-visible span,
@@ -108,6 +112,7 @@ body {
     background-color: $dark-grey;
     opacity: 0;
     visibility: hidden;
+    z-index: 99998;
     transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out,
       visibility 0s linear 0.4s;
 
@@ -147,6 +152,28 @@ body {
       &:hover {
         color: $yellow;
       }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 48px;
+    gap: 16px;
+
+    &_logo {
+      width: 42px;
+      height: 42px;
+    }
+
+    &_title {
+      margin: 0;
+      font-family: $second-family;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: $yellow;
     }
   }
 }
@@ -421,5 +448,344 @@ body {
     letter-spacing: 0.05em;
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+// test
+.test {
+  display: flex;
+  align-items: center;
+  background-image: url("../images/bg-1.png");
+  background-size: cover;
+
+  &__container {
+    display: flex;
+    min-height: calc(100vh - 46px);
+    padding-top: 17px;
+    padding-bottom: 27px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    &_loading {
+      justify-content: flex-start;
+    }
+  }
+
+  &__progress {
+    margin-bottom: 20px;
+    width: 100%;
+
+    &-bar {
+      width: 100%;
+      height: 11px;
+      appearance: none;
+
+      &::-webkit-progress-bar {
+        background-color: $light-grey;
+        border-radius: 10px;
+      }
+
+      &::-webkit-progress-value {
+        background-color: $green;
+        border-radius: 10px;
+      }
+
+      &::-moz-progress-bar {
+        background-color: $green;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  &__wrapper {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__question {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 33px;
+
+    &_text {
+      margin: 0;
+      width: 100%;
+      font-family: $font-family;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      color: $white;
+      white-space: pre-wrap;
+    }
+  }
+
+  &__button {
+    @include button;
+    align-self: center;
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+
+    &-radio {
+      width: 100vw;
+    }
+
+    &-color {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      justify-items: center;
+      gap: 21px;
+    }
+
+    &-block {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 8px;
+    }
+  }
+
+  &__answer {
+    &_wrapper-radio {
+      position: relative;
+      width: 100%;
+      padding: 15px 35px;
+      background-color: rgba(242, 243, 243, 0.15);
+      transition: background-color 0.3s ease-in-out;
+
+      &:has(.test__answer_input-radio:checked) {
+        background-color: $yellow;
+      }
+    }
+
+    &_input-radio {
+      appearance: none;
+      position: absolute;
+
+      &:checked + .test__answer_label-radio:after {
+        opacity: 1;
+      }
+
+      &:checked + .test__answer_label-radio {
+        color: $grey;
+      }
+    }
+
+    &_label-radio {
+      display: inline-block;
+      padding-left: 49px;
+      width: 100%;
+      font-family: $font-family;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      color: $white;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+
+      &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $white;
+        border-radius: 50%;
+        top: calc(50% - 10px);
+        left: 35px;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $grey;
+        border-radius: 50%;
+        top: calc(50% - 10px);
+        left: 35px;
+        background-color: $blue;
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.3s ease-in-out;
+      }
+    }
+
+    &_wrapper-color {
+      position: relative;
+    }
+
+    &_input-color {
+      appearance: none;
+      position: absolute;
+
+      &:checked + .test__answer_label-color:after {
+        opacity: 1;
+      }
+    }
+
+    &_label-color {
+      display: inline-block;
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 75px;
+        height: 75px;
+        border: none;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 81px;
+        height: 81px;
+        border: 6px solid $yellow;
+        top: -3px;
+        left: -3px;
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.3s ease-in-out;
+      }
+    }
+
+    &_wrapper-block {
+      position: relative;
+    }
+
+    &_input-block {
+      appearance: none;
+      position: absolute;
+
+      &:checked + .test__answer_label-block:after {
+        opacity: 1;
+      }
+    }
+
+    &_label-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 41px;
+      height: 41px;
+      font-family: $font-family;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 245%;
+      text-align: center;
+      color: $dark-blue;
+      background-color: $white;
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 41px;
+        height: 41px;
+        border: none;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 41px;
+        height: 41px;
+        border: 6px solid $yellow;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 33px;
+    max-width: 240px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 23px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: $white;
+  }
+
+  &__img {
+    margin-bottom: 28px;
+    width: 65px;
+    height: 68px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__text {
+    margin: 0;
+    align-self: start;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    white-space: normal;
+    color: $white;
+
+    &_dot {
+      display: inline-block;
+    }
   }
 }
