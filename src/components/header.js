@@ -43,18 +43,33 @@ export function renderHeader() {
   const header = el("header", { className: "header" });
   const container = el("div", { className: "container" });
 
-  if (window.location.pathname === "/test") {
+  if (window.location.pathname !== "/") {
     const logo = el(
       "div",
       { className: "header__wrapper" },
       el(
         "a",
-        { className: "header__wrapper_link", href: "/" },
+        {
+          className: "header__wrapper_link",
+          href: "/",
+          "aria-label": "Перейти на главную страницу",
+        },
         el("img", { className: "header__wrapper_logo", src: logoImg })
-      ),
-      el("p", { className: "header__wrapper_title" }, "тест на определение IQ")
+      )
     );
 
+    let logoText = el(
+      "p",
+      { className: "header__wrapper_title" },
+      "тест на определение IQ"
+    );
+
+    if (window.location.pathname === "/results") {
+      logoText.classList.add("header__wrapper_title-results");
+      logoText.innerHTML = "Готово!";
+    }
+
+    logo.appendChild(logoText);
     container.appendChild(logo);
   }
 

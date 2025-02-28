@@ -204,8 +204,6 @@ export function renderTestPage() {
     loader.appendChild(loadingText);
     wrapper.appendChild(loader);
 
-    let loadingTextContent = "Определение стиля мышления ";
-
     const addDot = () => {
       const dot = el("span", { className: "loading__text_dot" }, ".");
       loadingText.appendChild(dot);

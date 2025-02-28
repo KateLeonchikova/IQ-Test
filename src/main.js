@@ -5,6 +5,7 @@ import { el, setChildren } from "redom";
 import { renderHeader } from "./components/header";
 import { renderMainPage } from "./components/mainPage";
 import { renderTestPage } from "./components/testPage";
+import { renderResultsPage } from "./components/resultPage";
 import { renderFooter } from "./components/footer";
 
 const router = new Navigo("/");
@@ -16,9 +17,11 @@ router
     "/": () => {
       setChildren(app, renderHeader(), renderMainPage(), renderFooter());
     },
-
     "/test": () => {
       setChildren(app, renderHeader(), renderTestPage(), renderFooter());
+    },
+    "/results": () => {
+      setChildren(app, renderHeader(), renderResultsPage(), renderFooter());
     },
   })
   .resolve();
