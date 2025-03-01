@@ -33,7 +33,6 @@ body {
 
 #app {
   overflow-x: hidden;
-  height: 100%;
 }
 
 .container {
@@ -193,7 +192,7 @@ body {
 .hero {
   padding-top: 29px;
   padding-bottom: 16px;
-  background-image: (url("../../assets/images/bg-1.png"));
+  background-image: (url("../images/bg-1.png"));
   background-size: cover;
 
   &__container {
@@ -268,7 +267,7 @@ body {
     text-align: center;
     color: $white;
     background-color: transparent;
-    background-image: url("../images/btn.svg");
+    background-image: url("../svg/btn.svg");
     background-position: top center;
     background-size: 16px 16px;
     background-repeat: no-repeat;
@@ -291,7 +290,7 @@ body {
       rgba(38, 91, 199, 0.96) 40.62%,
       rgba(39, 98, 187, 0) 85.42%
     ),
-    url("../../assets/images/bg-2.jpg");
+    url("../images/bg-2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -321,7 +320,7 @@ body {
       left: -25px;
       width: 23px;
       height: 23px;
-      background-image: url("../../assets/images/quote-open.svg");
+      background-image: url("../svg/quote-open.svg");
       background-repeat: no-repeat;
       background-size: contain;
     }
@@ -333,7 +332,7 @@ body {
       right: -21px;
       width: 23px;
       height: 23px;
-      background-image: url("../../assets/images/quote-close.svg");
+      background-image: url("../svg/quote-close.svg");
       background-repeat: no-repeat;
       background-size: contain;
     }
@@ -984,7 +983,7 @@ body {
     text-align: start;
     color: $white;
     background-color: $red;
-    background-image: url("../images/phone.svg");
+    background-image: url("../svg/phone.svg");
     background-repeat: no-repeat;
     background-position: 15px center;
     cursor: pointer;

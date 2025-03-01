@@ -1,6 +1,6 @@
 import { el } from "redom";
 import questions from "../assets/questions.json";
-import loaderImg from "../assets/images/loader.svg";
+import loaderImg from "../assets/svg/loader.svg";
 
 export function renderTestPage() {
   let currentQuestionIndex = 0;

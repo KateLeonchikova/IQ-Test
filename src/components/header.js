@@ -1,5 +1,5 @@
 import { el } from "redom";
-import logoImg from "../assets/images/brain.svg";
+import logoImg from "../assets/svg/brain.svg";
 
 export function renderHeader() {
   let isMenuOpen = false;

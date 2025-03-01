@@ -56,7 +56,7 @@
   },
   {
     "type": "image-block",
-    "image": "src/assets/images/question_1.png",
+    "image": "/images/question_1.png",
     "question": "Выберите правильную фигуру из четырёх пронумерованных.",
     "answers": ["1", "2", "3", "4"]
   },
@@ -71,7 +71,7 @@
   },
   {
     "type": "text",
-    "image": "src/assets/images/question_2.png",
+    "image": "/images/question_2.png",
     "question": "Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:",
     "answers": [
       "Оно остроконечное",
@@ -81,7 +81,7 @@
   },
   {
     "type": "image-block",
-    "image": "src/assets/images/question_3.png",
+    "image": "/images/question_3.png",
     "question": "Вставьте подходящее число",
     "answers": ["34", "36", "53", "44", "66", "42"]
   }

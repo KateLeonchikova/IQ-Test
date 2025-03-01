@@ -1,5 +1,5 @@
 import { el } from "redom";
-import copyrightImg from "../assets/images/copyright.svg";
+import copyrightImg from "../assets/svg/copyright.svg";
 
 export function renderFooter() {
   if (window.location.pathname === "/test") {

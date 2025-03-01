@@ -1,7 +1,8 @@
 import { el } from "redom";
-import brainImg from "../assets/images/brain.svg";
-import benefitsImg from "../assets/images/extra-benefits.png";
+import brainImg from "../assets/svg/brain.svg";
 import { scrollToSection } from "../utils/scrollToSection";
+
+const benefitsImg = "/images/extra-benefits.png";
 
 export function renderMainPage() {
   const mainPage = el(
