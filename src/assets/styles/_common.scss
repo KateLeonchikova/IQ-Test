@@ -54,7 +54,7 @@ body {
 
   &__menu {
     display: flex;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     justify-content: space-between;
     z-index: 9999;
@@ -105,12 +105,13 @@ body {
   }
 
   &__nav {
-    position: absolute;
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100vw;
     display: flex;
     padding: 110px 23px;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     background-color: $dark-grey;
     opacity: 0;
     visibility: hidden;
@@ -119,7 +120,7 @@ body {
       visibility 0s linear 0.4s;
 
     &--open {
-      transform: translateX(-10px);
+      transform: translateY(0);
       opacity: 1;
       visibility: visible;
       transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;

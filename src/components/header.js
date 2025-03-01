@@ -31,6 +31,10 @@ export function renderHeader() {
     }
   }
 
+  function handleLinkClick() {
+    toggleMenu(false);
+  }
+
   function handleOutsideClick(event) {
     const menu = document.querySelector(".header__nav");
     const burgerButton = document.querySelector(".header__burger");
@@ -102,6 +106,7 @@ export function renderHeader() {
               className: "header__nav-link",
               href: "/",
               "aria-label": "Перейти на главную страницу",
+              onclick: handleLinkClick,
             },
             "Главная"
           )
@@ -114,6 +119,8 @@ export function renderHeader() {
             {
               className: "header__nav-link",
               href: "/#conclusion",
+              "aria-label": "Перейти к информации о тесте",
+              onclick: handleLinkClick,
             },
             "Информация о тесте"
           )
@@ -123,7 +130,12 @@ export function renderHeader() {
           { className: "header__nav-item" },
           el(
             "a",
-            { className: "header__nav-link", href: "/test" },
+            {
+              className: "header__nav-link",
+              href: "/test",
+              "aria-label": "Пройти тест",
+              onclick: handleLinkClick,
+            },
             "Пройти тест"
           )
         )

@@ -11,10 +11,6 @@
     &-list {
       align-items: flex-end;
     }
-
-    &--open {
-      transform: translateX(-30px);
-    }
   }
 
   .hero__title {
@@ -41,11 +37,10 @@
   }
 
   .header__nav {
-    justify-content: start;
-    padding: 110px 60px;
+    justify-content: center;
 
     &-list {
-      align-items: flex-start;
+      align-items: center;
     }
   }
 
