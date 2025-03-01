@@ -1,5 +1,6 @@
 import { el } from "redom";
 import logoImg from "../assets/svg/brain.svg";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export function renderHeader() {
   let isMenuOpen = false;
@@ -31,7 +32,7 @@ export function renderHeader() {
     }
   }
 
-  function handleLinkClick() {
+  function handleMenuAction() {
     toggleMenu(false);
   }
 
@@ -119,10 +120,14 @@ export function renderHeader() {
               className: "header__nav-link",
               href: "/#conclusion",
               "aria-label": "Перейти к информации о тесте",
-              onmousedown: handleLinkClick,
+              onclick: () => {
+                handleMenuAction();
+              },
               onkeydown: (event) => {
                 if (event.key === "Enter") {
-                  handleLinkClick();
+                  event.preventDefault();
+                  handleMenuAction();
+                  scrollToSection("#conclusion");
                 }
               },
             },
