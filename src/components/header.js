@@ -26,7 +26,7 @@ export function renderHeader() {
   }
 
   function handleKeyPress(event) {
-    if (event.key === "Escape" || event.key === "Enter") {
+    if (event.key === "Escape") {
       toggleMenu(false);
     }
   }
@@ -106,7 +106,6 @@ export function renderHeader() {
               className: "header__nav-link",
               href: "/",
               "aria-label": "Перейти на главную страницу",
-              onclick: handleLinkClick,
             },
             "Главная"
           )
@@ -120,7 +119,12 @@ export function renderHeader() {
               className: "header__nav-link",
               href: "/#conclusion",
               "aria-label": "Перейти к информации о тесте",
-              onclick: handleLinkClick,
+              onmousedown: handleLinkClick,
+              onkeydown: (event) => {
+                if (event.key === "Enter") {
+                  handleLinkClick();
+                }
+              },
             },
             "Информация о тесте"
           )
@@ -134,7 +138,6 @@ export function renderHeader() {
               className: "header__nav-link",
               href: "/test",
               "aria-label": "Пройти тест",
-              onclick: handleLinkClick,
             },
             "Пройти тест"
           )
