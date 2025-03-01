@@ -11,6 +11,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -632,6 +633,8 @@ body {
       background-color: rgba(242, 243, 243, 0.15);
       transition: background-color 0.3s ease-in-out;
 
+      &:has(.test__answer_input-radio:focus-visible),
+      &:has(.test__answer_input-radio:hover),
       &:has(.test__answer_input-radio:checked) {
         background-color: $yellow;
       }
@@ -645,6 +648,8 @@ body {
         opacity: 1;
       }
 
+      &:focus-visible + .test__answer_label-radio,
+      &:hover + .test__answer_label-radio,
       &:checked + .test__answer_label-radio {
         color: $grey;
       }
@@ -701,6 +706,8 @@ body {
       appearance: none;
       position: absolute;
 
+      &:focus-visible + .test__answer_label-color:after,
+      &:hover + .test__answer_label-color:after,
       &:checked + .test__answer_label-color:after {
         opacity: 1;
       }
@@ -748,6 +755,8 @@ body {
       appearance: none;
       position: absolute;
 
+      &:focus-visible + .test__answer_label-block:after,
+      &:hover + .test__answer_label-block:after,
       &:checked + .test__answer_label-block:after {
         opacity: 1;
       }
