@@ -1,16 +1,113 @@
 @use "variables" as *;
 
-@media (max-width: 1400px) {
+@media (min-width: 576px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .header__nav {
+    justify-content: end;
+
+    &-list {
+      align-items: flex-end;
+    }
+
+    &--open {
+      transform: translateX(-30px);
+    }
+  }
+
+  .hero__title {
+    max-width: 350px;
+  }
+
+  .benefits__descr {
+    max-width: 350px;
+  }
+
+  .conclusion__text {
+    align-self: center;
+    max-width: 350px;
+  }
+
+  .test__answers-radio {
+    width: calc(100% + 60px);
+  }
 }
 
-@media (max-width: 1200px) {
-}
+@media (min-width: 992px) {
+  .header__burger {
+    left: 60px;
+  }
 
-@media (max-width: 992px) {
-}
+  .header__nav {
+    justify-content: start;
+    padding: 110px 60px;
 
-@media (max-width: 767px) {
-}
+    &-list {
+      align-items: flex-start;
+    }
+  }
 
-@media (max-width: 625px) {
+  .header__wrapper {
+    justify-content: center;
+  }
+
+  .hero__title {
+    max-width: 100%;
+  }
+
+  .benefits__descr,
+  .benefits__descr,
+  .conclusion__text,
+  .conclusion__wrapper {
+    max-width: 80%;
+  }
+
+  .results__container {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .results__subtitle {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  .results__text {
+    max-width: 80%;
+    font-size: 18px;
+  }
+
+  .results__warning {
+    padding: 32px;
+    max-width: 80%;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .results__timer {
+    max-width: 400px;
+    font-size: 18px;
+
+    &_counting {
+      font-size: 30px;
+    }
+  }
+
+  .results__button {
+    max-width: 330px;
+    border-radius: 10px;
+    padding: 32px 20px 32px 80px;
+    font-size: 18px;
+    background-position: 30px center;
+  }
+
+  .results__data {
+    min-height: 145px;
+  }
+
+  .results__data_info {
+    font-size: 18px;
+  }
 }

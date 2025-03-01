@@ -126,7 +126,7 @@ export function renderTestPage() {
       const label = el(
         "label",
         {
-          for: `answer-${currentQuestionIndex}-${index}`,
+          htmlFor: `answer-${currentQuestionIndex}-${index}`,
           className: `${
             question.type === "text"
               ? "test__answer_label-radio"

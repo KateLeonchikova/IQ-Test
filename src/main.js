@@ -1,6 +1,6 @@
 import "./assets/styles/main.scss";
 import Navigo from "navigo";
-import { el, setChildren } from "redom";
+import { setChildren } from "redom";
 
 import { renderHeader } from "./components/header";
 import { renderMainPage } from "./components/mainPage";
@@ -12,16 +12,23 @@ const router = new Navigo("/");
 
 const app = document.getElementById("app");
 
+const header = renderHeader();
+const footer = renderFooter();
+
+function renderPage(content) {
+  setChildren(app, header, content, footer);
+}
+
 router
   .on({
     "/": () => {
-      setChildren(app, renderHeader(), renderMainPage(), renderFooter());
+      renderPage(renderMainPage());
     },
     "/test": () => {
-      setChildren(app, renderHeader(), renderTestPage(), renderFooter());
+      renderPage(renderTestPage());
     },
     "/results": () => {
-      setChildren(app, renderHeader(), renderResultsPage(), renderFooter());
+      renderPage(renderResultsPage());
     },
   })
   .resolve();
