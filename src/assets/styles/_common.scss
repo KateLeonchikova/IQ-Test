@@ -498,6 +498,7 @@ body {
       max-height: 18px;
       overflow-y: auto;
       scrollbar-width: none;
+      scroll-behavior: smooth;
     }
 
     &_text {
