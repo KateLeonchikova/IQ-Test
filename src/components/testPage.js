@@ -65,9 +65,10 @@ export function renderTestPage() {
 
     const question = questions[currentQuestionIndex];
 
-    questionContainer.appendChild(
-      el("p", { className: "test__question_text" }, question.question)
-    );
+    const questionText = el("p", { className: "test__question_text" });
+    questionText.innerHTML = question.question;
+
+    questionContainer.appendChild(questionText);
 
     if (question.image) {
       questionContainer.appendChild(
@@ -75,6 +76,8 @@ export function renderTestPage() {
           className: "test__question_image",
           src: question.image,
           alt: "Вопрос",
+          width: question.imageWidth,
+          height: question.imageHeight,
         })
       );
     }
