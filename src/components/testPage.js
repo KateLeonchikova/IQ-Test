@@ -83,22 +83,21 @@ export function renderTestPage() {
     }
 
     question.answers.forEach((answer, index) => {
-      if (question.type === "text") {
-        answersContainer.classList.add("test__answers-radio");
-      } else {
-        answersContainer.classList.remove("test__answers-radio");
-      }
+      const classMap = {
+        text: "test__answers-radio",
+        color: "test__answers-color",
+        "image-block": "test__answers-block",
+      };
 
-      if (question.type === "color") {
-        answersContainer.classList.add("test__answers-color");
-      } else {
-        answersContainer.classList.remove("test__answers-color");
-      }
+      answersContainer.classList.remove(
+        "test__answers-radio",
+        "test__answers-color",
+        "test__answers-block"
+      );
 
-      if (question.type === "image-block") {
-        answersContainer.classList.add("test__answers-block");
-      } else {
-        answersContainer.classList.remove("test__answers-block");
+      const classToAdd = classMap[question.type];
+      if (classToAdd) {
+        answersContainer.classList.add(classToAdd);
       }
 
       const answerWrapper = el("div", {
